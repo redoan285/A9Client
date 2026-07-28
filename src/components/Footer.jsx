@@ -36,3 +36,6 @@ const Footer = () => {
 };
 
 export default Footer;
+
+
+// connect to the database and fetch the data for the footer links and social media icons dynamically. This will allow for easier updates and maintenance of the footer content without needing to modify the code directly.
