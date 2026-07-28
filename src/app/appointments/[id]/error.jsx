@@ -4,8 +4,11 @@ import { Button } from "@heroui/react";
 import Link from "next/link";
 import { TbBandage, TbRefresh, TbHome } from "react-icons/tb";
 
-const ErrorPage = () => {
+const ErrorPage = ({ error, reset }) => {
     
+    useEffect(() => {
+        console.error(error);
+    }, [error]);
     
     return (
         <div className="min-h-[calc(100vh-64px)] flex flex-col items-center justify-center bg-[#f8f9ff] px-6 py-12">
