@@ -14,8 +14,22 @@ import { MdOutlineLocalHospital } from 'react-icons/md';
 
 import { redirect } from "next/navigation";
 
-export const metadata = {
-  title: 'Doctor-Details',
+export async function generateMetadata({ params }) {
+  const { id } = await params;
+  let title = 'Doctor Details | DocAppoint';
+  try {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/appoints/${id}`);
+    const data = await res.json();
+    if (data && data.name) {
+      title = `${data.name} - ${data.specialty || 'Doctor'} | DocAppoint`;
+    }
+  } catch (e) {
+    // ignore
+  }
+  return {
+    title,
+    description: `Book an appointment with this doctor on DocAppoint.`,
+  }
 }
 
 const DoctorDetails = async ({ params }) => {
