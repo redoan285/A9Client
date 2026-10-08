@@ -21,3 +21,16 @@ From discovering a specialist to securing a time slot, the application provides 
 - **Backend & Database:** Next.js API Routes, MongoDB
 - **Authentication & Security:** Better Auth, JWT
 - **Tooling:** ESLint, PostCSS
+
+## Vercel environment variables
+
+Before deploying, copy `.env.example` and add these values in the Vercel project settings:
+
+- `NEXT_PUBLIC_SERVER_URL` — the deployed backend API URL
+- `BETTER_AUTH_URL` — this app's auth endpoint, including `/api/auth`
+- `NEXT_PUBLIC_AUTH_URL` — the same auth endpoint exposed to the browser
+- `BETTER_AUTH_SECRET` — a long, random secret; do not commit it
+- `MONGODB_URI` — the MongoDB connection string
+- `GOOGLE_CLIENT_ID` and `GOOGLE_CLIENT_SECRET` — optional, but set both when Google sign-in is enabled
+
+`BETTER_AUTH_SECRET` and `MONGODB_URI` must be present in the Vercel environment used for the build and deployment.
